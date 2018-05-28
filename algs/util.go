@@ -44,6 +44,9 @@ func timeUsed(alg string, data sort.Interface) int64 {
 	case "Shell":
 		Shell(data)
 		break
+	case "Quick":
+		Quick(data)
+		break
 	default:
 		return 0
 	}
