@@ -1,7 +1,6 @@
 package algs
 
 import (
-	"fmt"
 	"math/rand"
 	"sort"
 	"time"
@@ -12,10 +11,8 @@ import (
  *
  */
 func Quick(data sort.Interface) {
-	fmt.Println(data)
 	shuffle(data)
 	qsort(data, 0, data.Len()-1)
-	fmt.Println(data)
 }
 
 func qsort(data sort.Interface, lo int, hi int) {
@@ -23,7 +20,7 @@ func qsort(data sort.Interface, lo int, hi int) {
 		j := partition(data, lo, hi)
 		qsort(data, lo, j-1)
 		qsort(data, j+1, hi)
-	}
+	} 
 }
 
 func partition(data sort.Interface, lo int, hi int) int {
