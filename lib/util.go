@@ -1,9 +1,10 @@
-package algs
+package lib
 
 import (
 	"fmt"
 	"math/rand"
 	"sort"
+	"sortAlgs4/algs"
 	"time"
 )
 
@@ -63,26 +64,25 @@ func IsSorted(data sort.Interface) bool {
 
 // Get sort time
 func timeUsed(alg string, data MyDoubleArr) int64 {
-	fmt.Println("Data Init ", data)
 	now := time.Now().UnixNano()
 	switch alg {
 	case "Insertion":
-		Insertion(data)
+		algs.Insertion(data)
 		break
 	case "Selection":
-		Selection(data)
+		algs.Selection(data)
 		break
 	case "Shell":
-		Shell(data)
+		algs.Shell(data)
 		break
 	case "Quick":
-		Quick(data)
+		algs.Quick(data)
 		break
 	case "HeapOffical":
-		HeapOffical(&data)
+		algs.HeapOffical(&data)
 		break
 	case "Heap":
-		Heap(&data)
+		algs.Heap(&data)
 		break
 	default:
 		return 0
@@ -99,6 +99,7 @@ func TimeRandomInput(alg string, N int, T int) int64 {
 	arr := make(MyDoubleArr, N)
 	var total int64 = 0
 	for t := 0; t < T; t++ {
+		fmt.Printf("######################################%d time sort\n", t)
 		for i := 0; i < N; i++ {
 			arr[i] = rand.Float32()
 		}
