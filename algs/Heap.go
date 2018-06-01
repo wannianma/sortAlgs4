@@ -6,18 +6,8 @@ import (
 	"sort"
 )
 
-// PQInterface 是一个基于最大堆的优先队列
-// 包括 sort.Interface中的Len, Swap, Less三个方法外，
-// 还有：
-// 		Insert 插入元素方法
-//		DelMax 删除最大元素方法
-type PQInterface interface {
-	sort.Interface
-	Insert(x interface{}) // add x as element Len()
-	DelMax() interface{}  // remove and return element Len() - 1.
-}
-
-func PQInit(h PQInterface) {
+// PQInit 构造有序堆
+func PQInit(h sort.Interface) {
 	N := h.Len()
 	for k := N/2 - 1; k >= 0; k-- {
 		sink(h, k, N)
@@ -25,7 +15,7 @@ func PQInit(h PQInterface) {
 }
 
 // swim 由下至上有序化
-func swim(h PQInterface, k int) {
+func swim(h sort.Interface, k int) {
 	for k > 0 && h.Less(k/2, k) {
 		h.Swap(k/2, k)
 		k = k / 2
@@ -33,7 +23,7 @@ func swim(h PQInterface, k int) {
 }
 
 // sink 由上之下的堆有序化
-func sink(h PQInterface, k int, N int) {
+func sink(h sort.Interface, k int, N int) {
 	// 数组边界问题
 	for 2*k+1 < N-1 {
 		j := 2*k + 1
@@ -74,7 +64,7 @@ func HeapOffical(data heap.Interface) {
  * 然后是下沉排序阶段，从堆中按递减顺序取出所有元素并取得排序结果。
  *
  */
-func Heap(data PQInterface) {
+func Heap(data sort.Interface) {
 	// 堆构造阶段
 	PQInit(data)
 	N := data.Len()

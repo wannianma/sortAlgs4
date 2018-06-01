@@ -36,20 +36,6 @@ func (c *MyDoubleArr) Pop() interface{} {
 	return x
 }
 
-// Insert insert a new Item to arr
-func (c *MyDoubleArr) Insert(x interface{}) {
-	*c = append(*c, x.(float32))
-}
-
-// DelMax
-func (c *MyDoubleArr) DelMax() interface{} {
-	old := *c
-	N := len(old)
-	x := old[N-1]
-	*c = old[0 : N-1]
-	return x
-}
-
 // IsSorted reports whether data is sorted.
 func IsSorted(data sort.Interface) bool {
 	n := data.Len()
