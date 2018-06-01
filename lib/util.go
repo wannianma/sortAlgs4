@@ -1,7 +1,6 @@
 package lib
 
 import (
-	"fmt"
 	"math/rand"
 	"sort"
 	"sortAlgs4/algs"
@@ -99,7 +98,6 @@ func TimeRandomInput(alg string, N int, T int) int64 {
 	arr := make(MyDoubleArr, N)
 	var total int64 = 0
 	for t := 0; t < T; t++ {
-		fmt.Printf("######################################%d time sort\n", t)
 		for i := 0; i < N; i++ {
 			arr[i] = rand.Float32()
 		}

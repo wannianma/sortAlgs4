@@ -15,10 +15,9 @@ func main() {
 
 	// fmt.Printf("time Heap %.3f", (timeQuick / (1e9)))
 
-	timeQuick := float64(lib.TimeRandomInput("Quick", 1000000, 1))
+	timeQuick := float64(lib.TimeRandomInput("Quick", 1000000, 50))
 
-	// timeHeap := float64(lib.TimeRandomInput("Heap", 1000000, 1))
-	timeHeap := 0.0
+	timeHeap := float64(lib.TimeRandomInput("Heap", 1000000, 50))
 
 	fmt.Printf("time quick %.3fs, time heap %.3fs\n", (timeQuick / (1e9)), (timeHeap / (1e9)))
 
